@@ -2,6 +2,8 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	"use strict";
 
+	// Tabs
+
 	tabsChanging("info-header", "info-header-tab", "info-tabcontent");
 
 	function tabsChanging(tabsWrapClass, tabsCollClass, contentCollClass) {
@@ -85,5 +87,58 @@ window.addEventListener("DOMContentLoaded", function() {
 			};
 	};
 	setTimer("timer", deadline);
+
+	// Modal popups
+	// btn-more
+
+	let btnMore = document.querySelector(".more"),
+		overlay = document.querySelector(".overlay"),
+		popupClose = overlay.querySelector(".popup-close"),
+		infoBlock = document.querySelector(".info"),
+		descriptionBtns = infoBlock.querySelectorAll(".description-btn");
+
+	function showPopup() {
+		overlay.style.display = "block";
+		document.body.style.overflow = "hidden";
+	}
+
+	function closePopup() {
+		overlay.style.display = "none";
+		document.body.style.overflow = "";
+	}
+
+	btnMore.addEventListener("click", function() {
+		showPopup();
+		btnMore.classList.add("more-splash");
+	});
+
+	popupClose.addEventListener("click", function() {
+		closePopup();
+		btnMore.classList.remove("more-splash");
+		descriptionBtns.forEach(function(item) {
+			item.classList.remove("more-splash");
+		});
+	});
+
+	// btn-description
+
+	infoBlock.addEventListener("click", function(event) {
+		if (event.target.matches("div.description-btn")) {
+			showPopup();
+			event.target.classList.add("more-splash");
+		}
+	});
+
+	// click-outside
+
+	function outsideClicking() {
+		document.addEventListener("click", function(event) {
+			let target = event.target;
+			if (!(target.closest(".popup")) && !(target.matches("div.description-btn")) && !(target == btnMore)) {
+				closePopup();
+			}
+		})
+	}
+	outsideClicking();
 
 });
