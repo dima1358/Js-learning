@@ -4,43 +4,6 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	// Tabs
 
-	// tabsChanging("info-header", "info-header-tab", "info-tabcontent");
-
-	// function tabsChanging(tabsWrapClass, tabsCollClass, contentCollClass) {
-
-	// 	let tabsWrap = document.querySelector(`.${tabsWrapClass}`),
-	// 		tabsColl = document.querySelectorAll(`.${tabsCollClass}`),
-	// 		contentColl = document.querySelectorAll(`.${contentCollClass}`);
-
-	// 	function hideContent(a) {
-	// 		for(let i = a; i < contentColl.length; i++) {
-	// 			contentColl[i].classList.remove("show");
-	// 			contentColl[i].classList.add("hide");
-	// 		}
-	// 	}
-	// 	hideContent(1);
-
-	// 	function showContent(b) {
-	// 		if (contentColl[b].classList.contains('hide')) {
-	// 			contentColl[b].classList.remove('hide');
-	// 			contentColl[b].classList.add('show');
-	// 		}
-	// 	}
-
-	// 	tabsWrap.addEventListener("click", function(event) {
-	// 		let target = event.target;
-	// 		if (target && target.classList.contains('info-header-tab')) {
-	// 			for(let i = 0; i < tabsColl.length; i++) {
-	// 				if (tabsColl[i] == target) {
-	// 					hideContent(0);
-	// 					showContent(i);
-	// 					break;
-	// 				}
-	// 			}
-	// 		}
-	// 	})
-	// };
-
 	let tabsChanging = (tabsWrapClass, tabsCollClass, contentCollClass) => {
 
 		let tabsWrap = document.querySelector(`.${tabsWrapClass}`),
@@ -78,50 +41,6 @@ window.addEventListener("DOMContentLoaded", function() {
 	tabsChanging("info-header", "info-header-tab", "info-tabcontent");
 
 	// Timer
-
-	// let deadline = "2019-09-26";
-
-	// function getPeriod(endtime) { 
-	// 	let t = Date.parse(endtime) - Date.parse(new Date()),
-	// 	hours = Math.floor((t/1000/60/60)),
-	// 	minutes = Math.floor((t/1000/60) % 60),
-	// 	seconds = Math.floor((t/1000) % 60);
-
-	// 	return {
-	// 		periodMS: t,
-	// 		periodH: hours,
-	// 		periodM: minutes,
-	// 		periodS: seconds,
-	// 	}
-	// }
-
-	// function setTimer(id, endtime) {
-	// 	let timer = document.getElementById(id),
-	// 		timerHours = timer.querySelector(".hours"),
-	// 		timerMinutes = timer.querySelector(".minutes"),
-	// 		timerSeconds = timer.querySelector(".seconds"),
-	// 		timerInterval = setInterval(updateTimer, 1000);
-
-	// 		function updateTimer() {
-	// 			let t = getPeriod(endtime);
-	// 			if (t.periodMS > 0) {
-	// 				for(let key in t) {
-	// 					if (t[key] < 10) {
-	// 						t[key] = `0${t[key]}`;
-	// 					}
-	// 				}
-	// 				timerHours.textContent = t.periodH;			
-	// 				timerMinutes.textContent = t.periodM;			
-	// 				timerSeconds.textContent = t.periodS;
-	// 			} else {
-	// 				timerHours.textContent = "00";
-	// 				timerMinutes.textContent = "00";			
-	// 				timerSeconds.textContent = "00";
-	// 				clearInterval(timerInterval);
-	// 			}
-	// 		};
-	// };
-	// setTimer("timer", deadline);
 
 	class Timer {
 		constructor(id, endtime) {
@@ -183,12 +102,10 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	let showPopup = () => {
 		overlay.style.display = "block";
-		document.body.style.overflow = "hidden";
 	}
 
 	let closePopup = () => {
 		overlay.style.display = "none";
-		document.body.style.overflow = "";
 	}
 
 	btnMore.addEventListener("click", function() {
@@ -224,5 +141,57 @@ window.addEventListener("DOMContentLoaded", function() {
 		})
 	}
 	outsideClicking();
+
+	// send-form
+	// modal-form
+
+	function sendForm(selectorForm) {
+		let form = document.querySelector(selectorForm),
+			input = form.getElementsByTagName("input"),
+			statusMessage = document.createElement('div'),
+			message = {
+				loading: "Идет отправка данных...",
+				succes: "Отправка данных завершена!",
+				error: "Возникла ошибка при отправке данных!"
+			};
+
+		form.appendChild(statusMessage);
+		statusMessage.classList.add("status-message");
+
+
+		form.addEventListener("submit", function(event) {
+			event.preventDefault();
+
+			let request = new XMLHttpRequest();
+			
+			request.open("POST", "server.php");
+			request.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+
+			let formData = new FormData(form),
+				obj = {};
+			formData.forEach(function(value, key) {
+				obj[key] = value;
+			});
+			let jsonData = JSON.stringify(obj);
+
+			request.send(jsonData);
+
+			request.addEventListener("readystatechange", function(){
+				if (request.readyState === 4 && request.status == 200) {
+					statusMessage.textContent = message.succes;
+					for (let i = 0; i < input.length; i++) {
+						input[i].value = "";
+					}
+				} else if (request.readyState < 4) {
+					statusMessage.textContent = message.loading;
+				} else {
+					statusMessage.textContent = message.error;
+				}
+			});
+		});
+	};
+
+	sendForm(".main-form");
+	sendForm("#form");
 
 });
