@@ -145,7 +145,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	// send-form
 	// modal-form
 
-	function sendForm(selectorForm) {
+	function initSending(selectorForm) {
+
 		let form = document.querySelector(selectorForm),
 			input = form.getElementsByTagName("input"),
 			statusMessage = document.createElement('div'),
@@ -157,7 +158,6 @@ window.addEventListener("DOMContentLoaded", function() {
 
 		form.appendChild(statusMessage);
 		statusMessage.classList.add("status-message");
-
 
 		form.addEventListener("submit", function(event) {
 			event.preventDefault();
@@ -177,21 +177,35 @@ window.addEventListener("DOMContentLoaded", function() {
 			request.send(jsonData);
 
 			request.addEventListener("readystatechange", function(){
-				if (request.readyState === 4 && request.status == 200) {
-					statusMessage.textContent = message.succes;
-					for (let i = 0; i < input.length; i++) {
-						input[i].value = "";
-					}
-				} else if (request.readyState < 4) {
-					statusMessage.textContent = message.loading;
-				} else {
-					statusMessage.textContent = message.error;
-				}
+				function sendForm() {
+					return new Promise(function(resolve, reject){
+						if (request.readyState === 4 && request.status == 200) {
+							resolve();
+						} else if (request.readyState < 4) {
+							resolve();
+						} else {
+							reject();
+						}
+					});
+				};
+				sendForm()
+					.then(function() {
+						statusMessage.textContent = message.loading;
+					})
+					.then(function() {
+						statusMessage.textContent = message.succes;
+						for (let i = 0; i < input.length; i++) {
+							input[i].value = "";
+						}
+					})
+					.catch(function() {
+						statusMessage.textContent = message.error;
+					})
 			});
 		});
 	};
 
-	sendForm(".main-form");
-	sendForm("#form");
+	initSending(".main-form");
+	initSending("#form");
 
 });
