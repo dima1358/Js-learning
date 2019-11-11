@@ -9,107 +9,42 @@
 </body>
 
 	<script>
-		// let num1 = +prompt("Первое число");
-		// 	num2 = +prompt("Второе число");
+		"use strict"
 
-		// 	num1 > num2 ? 
-		// 	console.log(num1) : num2 > num1 ?
-		// 	console.log(num2) : console.log("числа одинаковые")
-		
-		// let log = prompt ("Логин?");
-
-		// if (log == "Admin") {
-		// 	let	pass = prompt ("Пароль?");
-		// 	if (pass == "111") {
-		// 		alert ("Sucsess!")
-		// 	} else if (pass === null) {
-		// 		alert ("Ввод пароля отменен!");
-		// 	} else {
-		// 		alert("incorrect password")
-		// 	}
-		// } else if (log === null) {
-		// 	alert("ввод логина отменен!")
-		// } else {
-		// 	alert("Я вас не знаю")
-		// }
-
-		// var message;
-
-		// if (login == 'Вася') {
-		//   message = 'Привет';
-		// } else if (login == 'Директор') {
-		//   message = 'Здравствуйте';
-		// } else if (login == '') {
-		//   message = 'Нет логина';
-		// } else {
-		//   message = '';
-		// }
-
-		// let login = prompt("Логин?");
-
-		// let message = login == 'Вася' ?
-		// "Привет" : login == 'Директор' ?
-		// "Здравствуйте" : login == '' ?
-		// "Нет логина" : login === null ?
-		// "Вход отменен" : "Ошибка";
-
-		// console.log(message);
-
-		// var flatNum = +prompt("Номер квартиры?");
-
-		// if (flatNum >= 1 && flatNum <= 20) {
-		// 	console.log("Подъезд 1");
-		// } else if (flatNum >= 21 && flatNum <= 48) {
-		// 	console.log("Подъезд 2");
-		// } else if (flatNum >= 48 && flatNum <= 90) {
-		// 	console.log("Подъезд 3");
-		// } else if (flatNum < 1) {
-		// 	console.log("Такой квартиры не существует");
-		// } else {
-		// 	console.log("Такой квартиры нет");
-		// }
-
-			// var DataBase = {
-			// 	ivan: "334455",
-			// 	alex: "777",
-			// 	petr: "b5678"
-			// };
-			// var	login = prompt("Логин?");
-
-			// for (var key in DataBase) {
-			// 	if (login == null) {
-			// 		alert("Вход отменен!");
-			// 		break;
-			// 	} else if (login !== key) {
-			// 		alert("Логин " + login + " не зарегистрирован!");
-			// 		break;
-			// 	} else if (login == key) {
-			// 		var password = prompt("Пароль?");
-			// 		if (password == null) {
-			// 			alert("Ввод пароля отменен!");
-			// 			break;
-			// 		} else if (password !== DataBase[key]) {
-			// 			alert("Неверный пароль!");
-			// 			break;
-			// 		} else if (login == key && password == DataBase[key]) {
-			// 			alert("Добро пожаловать, " + login + "!");
-			// 			break;
-			// 		}
-			// 	}
-			// };
-
-			var a = 2,
-				b = 10;
-
-			outer:	
-			for (var i = a; i <= b; i++) {
-				for (var j = 2; j < i; j++) {
-					if (i % j == 0) {
-						continue outer;
-					}
+		let a = {
+			users: [
+				{
+					name: "John",
+					surname: "Smith",
+					age: 25,
+					married: true
+				},
+				{
+					name: "Kell",
+					surname: "Hui",
+					age: 11,
+					married: true
+				},
+				{
+					name: "Ben",
+					surname: "Pizda",
+					age: 52,
+					married: false,
+					bitches: ["one", "two", "three", "four"]
 				}
-				console.log(i);
-			}
+			],
+			status: "pizdec",
+			numbers: 777
+		}
+
+		let b = {
+			...a, 
+			status: 'pizdec2', 
+			users: [...a.users[2].bitches: 'six']
+		};
+
+		console.log(a)
+		console.log(b)
 
 	</script>
 

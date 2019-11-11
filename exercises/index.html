@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	test
+	<!-- <script>
+		// Типы данных. Оператор typeof
+		(typeof undefined) //undefined
+		(typeof Math) //object
+		(typeof Symbol("id")) //symbol
+		(typeof null) //object !
+		(typeof function() {}) //function !
+		(typeof NaN) //number (NaN) !
+		(typeof 1/0) //number (Infinity) !
+		(typeof undefined * 0) //NaN (number) !
+
+		// Приведение типов
+		// "", null, undefined, NaN, false - приводятся к значению FALSE!
+		(Boolean(value: [])) // приводится к TRUE!
+		(Boolean(value: {})) // приводится к TRUE!
+		(Boolean(value: function(){})) // приводится к TRUE!
+
+		// Строки и числа
+		("" - 1 + 0) //выведет -1 (для строк знак "-" не определен. все будет приведено к числу).
+		("3" * "8") //выведет 24 (аналогично первому случаю).
+		(4 + 10 + "px") //выведет 14px (сначала будет сложение, после - конкатенация).
+		("42" - 40) //выведет 2, поскольку строка будет приведена в число
+		("42px" - 40) //выведет NaN, поскольку строка будет приведена к числовому типу NaN (присутствуют нечисловые символы)
+		(null + 2) //выведет 2, поскольку null при приведении к числу будет 0 !
+		(undefined + 42) //выведет NaN, поскольку undefined невозможно привести к числу.
+
+		// Сравнения "=="
+		(false == "") //получим TRUE
+		(false == []) //получим TRUE
+		(false == {}) //получим FALSE
+		("" == 0) //получим TRUE
+		("" == []) //получим TRUE
+		("" == {}) //получим FALSE
+		(0 == []) //получим TRUE
+		(0 == {}) //получим FALSE
+		(0 == null) //получим FALSE
+
+		// Значения
+		let a = [1, 2, 3]
+		let b = a // в переменную b записывается ссылка на переменную a (при изменении одной из них меняется другая (это одно значение)).
+		b.push(4)
+		console.log(a) //[1, 2, 3, 4]
+		console.log(b) //[1, 2, 3, 4]
+
+		let b = a.concat() // в переменную b записывается копия переменной a (в итоге это разные значение(массивы)).
+	</script> -->
+
+	<!-- <script>
+
+		function sequence(start = 0, step = 1) {
+			let a = start - step;
+			return () => {
+				return a += step;
+			}
+		}
+
+		// let generator = sequence(1, 2)
+		// console.log(generator())
+		// console.log(generator())
+		// console.log(generator())
+
+		function take(fun, x) {
+			let arrNum = [];
+			for(let i = 0; i < x; i++) {
+				arrNum.push(fun());
+			}
+			return arrNum;
+		}
+		// console.log(take(generator, 3));
+
+		function square(x) {
+			return x * x;
+		};
+
+		function map(fun, arr) {
+			let arrFin = [];
+			arr.forEach((item, i) => {
+				arrFin.push(fun(item));
+			});
+			return arrFin;
+		}
+		let arrNum = [2, 4, 6]
+		// console.log(map(square, arrNum));
+		// console.log(map(square, []));
+		// console.log(arrNum);
+
+////////////////////////////////////////////////////////
+
+		let gen = sequence(1, 1);
+		let squareGen = fmap(square, gen);
+
+		function fmap(a, gen) {
+			return () => {
+				return a(gen());
+			}
+		}
+
+		console.log(squareGen())
+		console.log(squareGen())
+		console.log(squareGen())
+
+///////////////////////////////////////////////////////////
+
+		function add(a, b) {
+			return a + b;
+		}
+
+		var squareAdd = fmap(square, add);
+		console.log(squareAdd(2, 3));
+	</script> -->
+
+	<script>
+
+	</script>
+</body>
+</html>

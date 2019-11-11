@@ -1,0 +1,22 @@
+.user__wrap {
+    display: flex;
+    padding: 30px;
+    border-bottom: 1px solid grey;
+}
+.user__avatar {
+    margin-right: 30px;
+}
+.user__avatar img {
+    width: 100px;
+}
+.user__name {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+.user__info_list .key {
+    font-weight: 600;
+}
+.user__info_list .value {
+    margin-left: 5px;
+}

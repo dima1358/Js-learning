@@ -1,0 +1,30 @@
+.dialogs__message {
+    display: flex;
+    margin-bottom: 30px;
+}
+.dialogs__message .user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+.dialogs__message .user img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    object-fit: cover;
+}
+.dialogs__message .user .name {
+    font-size: 14px;
+}
+.dialogs__message .message {
+    border: 1px solid #69c;
+    border-radius: 4px;
+    padding: 10px;
+}
+.dialogs__message .message p {
+    font-size: 14px;
+    max-width: 500px;
+}
+

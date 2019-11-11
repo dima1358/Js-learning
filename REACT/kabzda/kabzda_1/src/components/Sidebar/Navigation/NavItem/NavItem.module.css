@@ -1,0 +1,12 @@
+.sidebar__item {
+    margin-bottom: 10px;
+}
+.sidebar__item a {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+}
+.sidebar__item a.active,
+.sidebar__item a.hover {
+    color: #69c
+}

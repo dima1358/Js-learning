@@ -1,0 +1,16 @@
+.sidebar {
+	background: #9c9;
+	flex: 1;
+	padding: 30px
+}
+.sidebar__friends {
+	margin-top: 100px;
+}
+.sidebar__friends .title {
+	font-size: 18px;
+	color: white;
+	margin-bottom: 20px;
+}
+.sidebar__friends ul {
+	display: flex;
+}

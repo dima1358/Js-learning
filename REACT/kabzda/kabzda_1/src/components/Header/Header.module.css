@@ -1,0 +1,45 @@
+.header {
+	background: #bab3b2;
+	display: flex;
+	padding: 15px;
+	align-items: center;
+	height: 110px;
+}
+
+.header img {
+	width: 80px;
+}
+
+.menu__list {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style: none;
+	margin-left: 30px;
+}
+
+.menu__list li {
+	margin-right: 30px;
+}
+
+.menu__list a {
+	color: #fff;
+	text-decoration: none;
+	transition: .3s
+}
+
+.menu__list a:hover {
+	color: #69c;
+}
+
+.login__status {
+	margin-left: auto;
+}
+.login__status a {
+	color: white;
+	text-transform: uppercase;
+	transition: .3s;
+}
+.login__status a:hover {
+	color: #6699cc;
+}

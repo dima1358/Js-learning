@@ -1,0 +1,25 @@
+.friendItem {
+	margin-right: 15px;
+}
+.friendItem:last-child {
+	margin-right: 0;
+}
+.friendItem a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.friendItem a:hover span {
+	color: #69c;
+}
+.friendItem img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50px;
+	object-fit: cover;
+}
+.friendItem span {
+	font-size: 14px;
+	color: white;
+	transition: .3s;
+}

@@ -1,0 +1,18 @@
+.posts__wrap {
+    padding: 30px;
+}
+.posts__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.posts__chat {
+    max-width: 500px;
+}
+.posts__chat .form {
+    margin-bottom: 30px;
+}
+.posts__chat .form button {
+    display: block;
+    margin-left: auto;
+}

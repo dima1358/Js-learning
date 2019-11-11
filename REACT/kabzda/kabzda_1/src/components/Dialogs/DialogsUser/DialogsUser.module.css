@@ -1,0 +1,13 @@
+.dialogs__item {
+    margin-bottom: 15px;
+}
+.dialogs__item a {
+    transition: .3s;
+}
+.dialogs__item a:hover {
+    color: #69c;
+}
+.dialogs__item a.active {
+    color: gold;
+    font-weight: 700;
+}

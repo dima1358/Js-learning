@@ -15,6 +15,18 @@
             height: 50px;
             font-size: 30px;
         }
+        .circle {
+            transition-property: width, height, margin-left, margin-top;
+            transition-duration: 2s;
+            position: fixed;
+            transform: translateX(-50%) translateY(-50%);
+            background-color: red;
+            border-radius: 50%;
+            width: 0px;
+            height: 0px;
+            top: 150px;
+            left: 150px;
+        }
     </style>
 </head>
 <body>
@@ -22,6 +34,9 @@
     <input id="rub" type="text">
     <label for="usd">USD</label>
     <input id="usd" type="text">
+    
+     <div class="circle"></div>
+
     <script src="js/script.js"></script>
 </body>
 </html>

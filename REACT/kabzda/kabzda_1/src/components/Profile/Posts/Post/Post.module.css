@@ -1,0 +1,24 @@
+.post__item {
+    margin-bottom: 30px;
+    display: flex;
+}
+.post__itemLeft {
+    max-width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post__itemLeft span {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.post__item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+.post__item p {
+    font-size: 14px;
+    margin-left: 15px;
+}
